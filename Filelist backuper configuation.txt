@@ -1,0 +1,16 @@
+{
+  "blockSize": 512,
+  "directories": [
+    "Documents",
+    "Pictures",
+    "Videos"
+  ],
+  "ignoreFileNames": ["desktop.ini"],
+  "directoriesToSearch": [
+    "C:\\Users\\Admin\\Documents",
+    "C:\\Users\\Admin\\Downloads",
+    "C:\\Users\\Admin\\Pictures",
+    "C:\\Users\\Admin\\Videos",
+    "C:\\Photos"
+  ]
+}
