@@ -65,7 +65,7 @@ for directory in searchDirectories:
     for path, subdirs, files in os.walk(directory):
         for name in files:
             if name in fileNames:
-                searchFileInfo = getFileInfo(name, path, directory)
+                searchFileInfo = getFileInfo(name, path, directory, blockSize)
                 if isItAMatch(searchFileInfo, fileInfoDictionary[name], ["duration", "framerate", "width", "height"]):
                     if len(fileInfoDictionary[name]) == 0:  #if array is length 0 remove the filename entry
                         del fileInfoDictionary[name]
@@ -92,7 +92,7 @@ for directory in searchDirectories:
         for name in files:
             fileHalfBlocks = round(math.ceil(os.path.getsize(os.path.join(path, name))/blockSize)/2)
             if fileHalfBlocks in fileInfoDictionaryByHalfBlocks:
-                searchFileInfo = getFileInfo(name, path, directory)
+                searchFileInfo = getFileInfo(name, path, directory, blockSize)
                 fileExtension = name.split(".")[-1]
                 for fileInfo in fileInfoDictionaryByHalfBlocks[fileHalfBlocks]:
                     if fileInfo["name"].split(".")[-1] == fileExtension:
