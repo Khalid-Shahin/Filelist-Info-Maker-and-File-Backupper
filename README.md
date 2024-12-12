@@ -20,8 +20,8 @@ Basically it's useful if files are moved around on your system and they might no
 It's also useful if you prefer using the File Explorer to choose what files you want over the UI of a program. Or if you already manually copy and pasted the files you wanted and then realized you'd want to do the backup again in the future without needing to choose the files again.
 
 There are many downsides, here are two that I thought to mention:
-1. Doesn't recognize the file if it changed size by like a byte. This can be fixed by changing a check or tweaking a line. Or file size checks can be removed completely.
-	a. or abs(fileInfo["blocksOnDisk"] - searchFileInfo["blocksOnDisk"]) <= 1		#Can be changed to a larger number to give more of a range in file size differences
+1. Doesn't recognize the file if it changed size by like a byte. This can be fixed by changing a check or tweaking a line. Or file size checks can be removed completely. 
+	a. or abs(fileInfo["blocksOnDisk"] - searchFileInfo["blocksOnDisk"]) <= 1		#Can be changed to a larger number to give more of a range in file size differences. 
 	b. fileHalfBlocks = round(math.ceil(os.path.getsize(os.path.join(path, name))/block_size)/2)		#Can be changed to divide by a bigger number like 10 to give the size recognition more range.
 2. It's not particularly fast at backing up, but it gets the job done since I don't run it frequently.
 
