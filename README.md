@@ -4,7 +4,7 @@
 ## Untested program
 This was made for myself only. I do not guarantee that data won't be lost or destroyed. Use at your own risk.
 
-Only tested with Windows 10. It won't work for Unix without some modifications. There's no UI. No commands. Only arguments are in "Filelist backuper configuation.txt" as JSON format.
+Only tested with Windows 10. It won't work for Unix without some modifications. There's no UI. No commands. The only parameters are in "Filelist backupper configuation.txt" as JSON format.
 
 I haven't tested this outside the scope of my use case. I don't know how it handles absolute paths or anything like that.
 
@@ -18,14 +18,14 @@ Another way it can be used is without copying the files ahead of time and then m
 
 Also me or someone else can make a script to modify the JSON .txt file to change the folder structure of where you'd want the files to be backed up to.
 
-You can just use "Filelist backuper.py" to generate the JSON .txt file without using the backup script if you just want a file info list.
+You can just use "Filelist backupper.py" to generate the JSON .txt file without using the backup script if you just want a file info list.
 
 
 Possible use cases:
 
-Scenario 1: You backup manually by copy/paste a lot of files to a USB drive using the regular File Explorer. Run "Filelist backuper.py" to generate the file list "files info for backup.txt". You give away that USB drive or lose it. You get another USB drive, plug it in, and you run "Make backup from files info.py" on there with that file list .txt file and it will search your specified directories on your computer for those files and copies them to the new destination.
+Scenario 1: You backup manually by copy/paste a lot of files to a USB drive using the regular File Explorer. Run "Filelist backupper.py" to generate the file list "files info for backup.txt". You give away that USB drive or lose it. You get another USB drive, plug it in, and you run "Make backup from files info.py" on there with that file list .txt file and it will search your specified directories on your computer for those files and copies them to the new destination.
 
-Scenario 2: You just want to create file list with their paths and metadata, so you simply run "Filelist backuper.py" to generate the .txt file.
+Scenario 2: You just want to create file list with their paths and metadata, so you simply run "Filelist backupper.py" to generate the .txt file.
 
 Basically it's useful if files are moved around on your system and they might not be where they were before, and you want them backed up again later.
 
@@ -42,7 +42,7 @@ You may find this program is 90% of what you want and you can add onto it to get
 
 
 There are two main scripts for the user to run:
-1. Filelist backuper.py
+1. Filelist backupper.py
 	* This will generate "files info for backup.txt" which has all the filenames, relative and absolute directory paths, subpaths, and some metadata.
 	* Depending on use case, this script may be useful as is without needing to run the second script.
 2. Make backup from files info.py
@@ -51,10 +51,10 @@ There are two main scripts for the user to run:
 	* It will create all the needed paths and subpaths.
 
 
-Both of these scripts load "Filelist backuper configuation.txt"
+Both of these scripts load "Filelist backupper configuation.txt"
 
 
-Config File "Filelist backuper configuation.txt"
+Config File "Filelist backupper configuation.txt"
 1. directories, the (relative) backedup folder structure
 2. ignoreFileNames, what filenames will be ignored for when the first script generates "files info for backup.txt"
 3. directoriesToSearch, the absolute paths of the directories you want to search in by the second script
@@ -62,11 +62,11 @@ Config File "Filelist backuper configuation.txt"
 
 ## Instructions
 1. Have the files you want to backup in the folder structure you want the backup to be in. So you'd manually backup the files you want to a backup destination folder using the normal Windows File Explorer.
-2. Put the "Filelist backuper.py" script in the same directory as the manually backed up folders, and run it. (I haven't tested absolute paths, so maybe this isn't necessary.)
+2. Put the "Filelist backupper.py" script in the same directory as the manually backed up folders, and run it. (I haven't tested absolute paths, so maybe this isn't necessary.)
 3. If that script was successful you'll have "files info for backup.txt" and confirm that it looks like it recognized the files you wanted.
 4. You'd keep "files info for backup.txt" so later you can run "Make backup from files info.py" which will search in the specified directories (directoriesToSearch) for those files.
 5. It will copy those files to the destination, subpaths and all, and will overwrite any existing files of the same name. And it will let you know of the files that it couldn't find.
-6. If you later want more files to be backed up, after yoou run that "Make backup from files info.py" script so all the backed up files are present, you can manually copy new files into those directories as needed and then re-run "Filelist backuper.py" to generate the new list.
+6. If you later want more files to be backed up, after yoou run that "Make backup from files info.py" script so all the backed up files are present, you can manually copy new files into those directories as needed and then re-run "Filelist backupper.py" to generate the new list.
 7. Always double check to make sure the files you want to be backed up are recognized, and double check to make sure that they are all copied over properly. This program doesn't have proper error checking or graceful exiting on crash.
 
 ## License

@@ -10,7 +10,7 @@ from getFileInfo import getFileInfo
 
 print("Running...")
 
-f = open("Filelist backuper configuation.txt", "r") #Config filename
+f = open("Filelist backupper configuation.txt", "r") #Config filename
 config = json.loads(f.read())       #The config file format is json like, { "directories": ["Documents", "Photos", "Videos"] }
 f.close()
 
