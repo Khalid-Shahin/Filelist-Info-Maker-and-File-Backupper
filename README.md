@@ -44,7 +44,7 @@ Config File "Filelist backuper configuation.txt"
 3. directoriesToSearch, the absolute paths of the directories you want to search in by the second script
 4. blockSize, set this to whatever the block size are for your hard drive. This isn't all too important really.
 
-## INSTRUCTIONS
+## Instructions
 1. Have the files you want to backup in the folder structure you want the backup to be in. So you'd manually backup the files you want to a backup destination folder using the normal Windows File Explorer.
 2. Put the "Filelist backuper.py" script in the same directory as the manually backed up folders, and run it. (I haven't tested absolute paths, so maybe this isn't necessary.)
 3. If that script was successful you'll have "files info for backup.txt" and confirm that it looks like it recognized the files you wanted.
@@ -53,7 +53,7 @@ Config File "Filelist backuper configuation.txt"
 6. If you later want more files to be backed up, after yoou run that "Make backup from files info.py" script so all the backed up files are present, you can manually copy new files into those directories as needed and then re-run "Filelist backuper.py" to generate the new list.
 7. Always double check to make sure the files you want to be backed up are recognized, and double check to make sure that they are all copied over properly. This program doesn't have proper error checking or graceful exiting on crash.
 
-## LICENSE
+## License
 You may use and modify this program in any which way as you wish with or without attribution. You can make derivative works from it. I have no rights reserved and I publish this into the public domain under the CC0 license.
 In short: Do whatever you want with it and no attribution needed.
 I didn't check the license for the libraries that this program imports. Which are the Python Standard Library and pywin32. So be sure to follow the license for those if it's relevant. CC0 only applies to the source code in this repo.
