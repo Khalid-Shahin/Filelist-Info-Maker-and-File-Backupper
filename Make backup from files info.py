@@ -17,8 +17,8 @@ f.close()
 searchDirectories = config["directoriesToSearch"]     #Just an array of full path strings
 blockSize = config["blockSize"]
 
-f = open("files info for backup.txt", "r") #File info of what to find and backup
-filesInfo = json.loads(f.read())
+f = open("files info for backup.txt", "r")  #File info of what to find and backup
+filesInfo = json.loads(f.read())            #I can have a check to see if the file exists and tell the user.
 f.close()
 
 print(str(len(filesInfo)) + " files")
