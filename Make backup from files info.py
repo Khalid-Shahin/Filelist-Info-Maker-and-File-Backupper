@@ -50,15 +50,14 @@ def propertiesCompare(fileToCopyInfo, searchFileInfo, properties):
     return True
 
 def isItAMatch(searchFileInfo, infoEntries, properties = ["duration", "framerate", "width", "height"]):
-    index = 0
-    for fileInfo in infoEntries:
+    for index in range(len(infoEntries))[::-1]:
+        fileInfo = infoEntries[index]
         if propertyCompare(fileInfo, searchFileInfo, "fileSize") or abs(fileInfo["blocksOnDisk"] - searchFileInfo["blocksOnDisk"]) <= 1:
             if propertiesCompare(fileInfo, searchFileInfo, properties): #Checks to make sure the properties match (if it's available)
                 searchFileInfo["originalInfo"] = fileInfo
                 filesToCopy.append(deepcopy(searchFileInfo))    #I probably don't need to make a deepcopy
                 infoEntries.pop(index) #Removes from the entry from the array in the dictionary as they find it
                 return True
-        index += 1
     return False
 
 for directory in searchDirectories:
